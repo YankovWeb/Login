@@ -3,6 +3,7 @@ import React, {useEffect, useReducer, useState} from "react";
 import Card from "../UI/Card/Card";
 import classes from "./Login.module.css";
 import Button from "../UI/Button/Button";
+//reducer function for email state and validatio
 
 const emailReducer = (state, action) => {
   if (action.type === "USER_INPUT") {
@@ -11,17 +12,19 @@ const emailReducer = (state, action) => {
   if (action.type === "INPUT_BLUR") {
     return {value: state.value, isValid: state.value.includes("@")};
   }
-
   return {value: null, isValid: false};
 };
+// reducer function for password state and validatio
 
 const passwordReducer = (state, action) => {
   if (action.type === "PASSWORD_INPUT") {
     return {value: action.val, isValid: action.val.trim().length > 6};
   }
+
   if (action.type === "PASSWORD_BLUR") {
     return {value: state.value, isValid: state.value.trim().length > 6};
   }
+
   return {value: null, isValid: false};
 };
 
